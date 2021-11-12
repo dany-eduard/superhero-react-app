@@ -1,4 +1,5 @@
 import { ReactNode } from 'react'
+import Navbar from 'components/Navbar'
 
 interface LayoutPorps {
   children: ReactNode
@@ -6,7 +7,7 @@ interface LayoutPorps {
 
 const Layout = ({ children }: LayoutPorps) => (
   <div>
-    {/* NavBar */}
+    <Navbar />
     <main>{children}</main>
   </div>
 )
