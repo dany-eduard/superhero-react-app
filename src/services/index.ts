@@ -1,15 +1,28 @@
+/* eslint-disable no-unused-vars */
 import axios from 'axios'
-import { pushHerotoList } from 'store/slices/superHeroes'
+import { pushHerotoList, setLoading } from 'store/slices/superHeroes'
 
 const ApiUrl = process.env.REACT_APP_API_URL
 const ApiKey = process.env.REACT_APP_API_KEY
 
-const fetchHeroes = (params: string | number) => async (dispatch: Function) => {
+const filterSuccess = (response: any[]) => response.filter((item: any) => item.status === 'fulfilled')
+
+const setHeroes = (resSuccess: any[], dispatch: Function) => {
+  const data = resSuccess.map((item) => item.value.data)
+  dispatch(pushHerotoList(data))
+}
+
+const fetchHeroes = (params: number[]) => async (dispatch: Function) => {
+  dispatch(setLoading(true))
+  const requets = params.map((id) => axios.get(`${ApiUrl}${ApiKey}/${id}`))
   try {
-    const response = await axios.get(`${ApiUrl}${ApiKey}/${params}`)
-    dispatch(pushHerotoList(response.data))
+    const res = await Promise.allSettled(requets)
+    const resSucces = filterSuccess(res)
+    setHeroes(resSucces, dispatch)
   } catch (error) {
     throw new Error(error as string)
+  } finally {
+    dispatch(setLoading(false))
   }
 }
 
