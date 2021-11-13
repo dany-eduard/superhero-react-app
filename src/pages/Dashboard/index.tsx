@@ -1,17 +1,69 @@
-const index = () => (
-  <div>
-    <h1>Dashboard</h1>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint voluptatibus eos facilis repudiandae iusto enim ipsa
-      distinctio! Impedit officiis reiciendis earum natus mollitia, rem eligendi exercitationem neque. Ipsa culpa
-      quaerat praesentium soluta fugit labore hic voluptatibus quo a, similique, ratione eligendi, ducimus qui.
-      Reprehenderit deleniti neque distinctio. Nisi excepturi laboriosam commodi necessitatibus numquam magni libero
-      esse, nam dignissimos, fugit, voluptate incidunt optio saepe enim eveniet corporis inventore praesentium nihil
-      quas consequatur maiores eaque qui! Cum at maiores deleniti laborum dolorum dicta, fugiat vel eveniet quisquam
-      dolores voluptatum molestiae, voluptas nihil quaerat exercitationem quia voluptatem nam hic doloremque ipsam
-      obcaecati. Ratione.
-    </p>
-  </div>
-)
+import { RootState } from 'store'
+import { useDispatch, useSelector } from 'react-redux'
+import { useEffect } from 'react'
+import CardHero from 'components/CardHero'
+import fetchHeroes from 'services'
+import Loader from 'components/Loader'
+
+const index = () => {
+  const dispatch = useDispatch()
+  const heroesList = useSelector((state: RootState) => state.superHeroes.list)
+  const loading = useSelector((state: RootState) => state.superHeroes.loading)
+  // const lastIndex = useSelector((state: RootState) => state.superHeroes.index)
+  const lastId = +(heroesList[heroesList.length - 1]?.id ?? 0)
+
+  const getIdArray = () => {
+    const idArray = []
+    for (let i = lastId; i < lastId + 10; i += 1) {
+      idArray.push(i + 1)
+    }
+    return idArray
+  }
+
+  const getHeroes = async () => {
+    dispatch(fetchHeroes(getIdArray()))
+  }
+
+  useEffect(() => {
+    dispatch(fetchHeroes(getIdArray()))
+    return () => {}
+  }, [])
+
+  useEffect(() => {
+    window.onscroll = () => {
+      if (
+        document.documentElement.scrollHeight - document.documentElement.scrollTop ===
+        document.documentElement.clientHeight
+      ) {
+        if (!loading) getHeroes()
+      }
+    }
+    return () => {
+      window.onscroll = null
+    }
+  }, [loading])
+
+  return (
+    <div className="custom-container">
+      <div className="mt-5 mb-3">
+        <div className="row">
+          {heroesList.map((hero) => (
+            <div className="col-md-4" key={hero.id}>
+              <CardHero
+                name={hero.name}
+                powerstats={hero.powerstats}
+                fullName={hero.biography[`full-name`]}
+                alignment={hero.biography.alignment}
+                appearance={hero.appearance}
+                image={hero.image}
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+      {loading && <Loader />}
+    </div>
+  )
+}
 
 export default index
