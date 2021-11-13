@@ -1,4 +1,5 @@
 import { useLocation } from 'react-router'
+import { Link } from 'react-router-dom'
 
 const index = () => {
   const path = useLocation().pathname
@@ -18,19 +19,19 @@ const index = () => {
           <span className="navbar-toggler-icon" />
         </button>
         <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
-          <a className="navbar-brand" href="/">
+          <Link className={`navbar-brand nav-link ${path === '/' && 'active'}`} to="/">
             Inicio
-          </a>
+          </Link>
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <a className={`nav-link ${path === '/habilidades' && 'active'}`} aria-current="page" href="/habilidades">
+              <Link className={`nav-link ${path === '/habilidades' && 'active'}`} to="/habilidades">
                 Habilidades
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a className={`nav-link ${path === '/apariencia' && 'active'}`} href="/apariencia">
+              <Link className={`nav-link ${path === '/apariencia' && 'active'}`} to="/apariencia">
                 Apariencia
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
