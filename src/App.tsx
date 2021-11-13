@@ -1,19 +1,24 @@
-import Apariencia from 'pages/Apariencia'
-import Dashboard from 'pages/Dashboard'
-import Habilidades from 'pages/Habilidades'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { Suspense, lazy } from 'react'
 import Layout from 'components/Layout'
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import Loader from 'components/Loader'
+
+const Apariencia = lazy(() => import('pages/Apariencia'))
+const Dashboard = lazy(() => import('pages/Dashboard'))
+const Habilidades = lazy(() => import('pages/Habilidades'))
 
 const App = () => (
-  <Router>
+  <BrowserRouter>
     <Layout>
-      <Routes>
-        <Route path="/" element={<Dashboard />} /> {/* Inicio */}
-        <Route path="/habilidades" element={<Habilidades />} /> {/* Filtrar por habilidades */}
-        <Route path="/apariencia" element={<Apariencia />} /> {/* Filtrar por Apariencia */}
-      </Routes>
+      <Suspense fallback={<Loader />}>
+        <Routes>
+          <Route path="/" element={<Dashboard />} />
+          <Route path="/habilidades" element={<Habilidades />} />
+          <Route path="/apariencia" element={<Apariencia />} />
+        </Routes>
+      </Suspense>
     </Layout>
-  </Router>
+  </BrowserRouter>
 )
 
 export default App
