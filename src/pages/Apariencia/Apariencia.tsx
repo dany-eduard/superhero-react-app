@@ -1,5 +1,5 @@
-const index = () => (
-  <div>
+const Apariencia = () => (
+  <div className="custom-container">
     <h2>Apariencia</h2>
     <p>
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, eos quidem pariatur accusamus, enim cumque
@@ -13,4 +13,4 @@ const index = () => (
   </div>
 )
 
-export default index
+export default Apariencia

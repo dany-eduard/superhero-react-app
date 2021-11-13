@@ -5,11 +5,10 @@ import CardHero from 'components/CardHero'
 import fetchHeroes from 'services'
 import Loader from 'components/Loader'
 
-const index = () => {
+const Dashboard = () => {
   const dispatch = useDispatch()
   const heroesList = useSelector((state: RootState) => state.superHeroes.list)
   const loading = useSelector((state: RootState) => state.superHeroes.loading)
-  // const lastIndex = useSelector((state: RootState) => state.superHeroes.index)
   const lastId = +(heroesList[heroesList.length - 1]?.id ?? 0)
 
   const getIdArray = () => {
@@ -66,4 +65,4 @@ const index = () => {
   )
 }
 
-export default index
+export default Dashboard

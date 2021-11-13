@@ -1,7 +1,7 @@
 import { useLocation } from 'react-router'
 import { Link } from 'react-router-dom'
 
-const index = () => {
+const Navbar = () => {
   const path = useLocation().pathname
 
   return (
@@ -40,4 +40,4 @@ const index = () => {
   )
 }
 
-export default index
+export default Navbar
