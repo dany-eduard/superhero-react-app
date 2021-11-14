@@ -21,10 +21,9 @@ code {
   background-color: #eee;
   border-radius: 15px;
   display: flex;
-  font-size: 39px;
-  height: 50px;
+  height: 61px;
   justify-content: center;
   margin-right: 10px;
-  width: 50px;
+  width: 61px;
   overflow: hidden;
 }
