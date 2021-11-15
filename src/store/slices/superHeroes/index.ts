@@ -25,6 +25,9 @@ export const superHeroesSlice = createSlice({
     pushHerotoList: (state, action) => {
       state.list.push(...action.payload)
     },
+    resetList: (state) => {
+      state.list = []
+    },
     setIndex: (state, action) => {
       state.index = action.payload
     },
@@ -43,5 +46,5 @@ export const superHeroesSlice = createSlice({
   },
 })
 
-export const { setHero, pushHerotoList, incrementIndex, setIndex, setLoading } = superHeroesSlice.actions
+export const { setHero, pushHerotoList, resetList, incrementIndex, setIndex, setLoading } = superHeroesSlice.actions
 export default superHeroesSlice.reducer
