@@ -10,11 +10,6 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
-img {
-  width: 100%;
-  height: auto;
-}
-
 .custom-container {
   max-width: 960px;
   margin: 0 auto;
