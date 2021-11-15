@@ -35,3 +35,30 @@ export const SortOptions = [
     value: 'desc',
   },
 ]
+
+export const SelectAppearanceOptions = [
+  {
+    label: 'Genero',
+    value: 'gender',
+  },
+  {
+    label: 'Raza',
+    value: 'race',
+  },
+  {
+    label: 'Altura (cm)',
+    value: 'height',
+  },
+  {
+    label: 'Peso (kg)',
+    value: 'weight',
+  },
+  {
+    label: 'Color de ojos',
+    value: 'eye-color',
+  },
+  {
+    label: 'Color de pelo',
+    value: 'hair-color',
+  },
+]
