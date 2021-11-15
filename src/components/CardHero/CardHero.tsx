@@ -24,7 +24,7 @@ const index = (props: CardProps) => {
             <h6 className="mb-0">{name}</h6> <span>{fullName}</span>
           </div>
         </div>
-        <div className="badge">
+        <div className={`alignment-container fst-italic ${alignment === 'good' ? 'text-success' : 'text-warning'}`}>
           {' '}
           <span>{alignment}</span>{' '}
         </div>

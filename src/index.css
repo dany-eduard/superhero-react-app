@@ -10,6 +10,11 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
+img {
+  width: 100%;
+  height: auto;
+}
+
 .custom-container {
   max-width: 960px;
   margin: 0 auto;
@@ -26,4 +31,12 @@ code {
   margin-right: 10px;
   width: 61px;
   overflow: hidden;
+}
+
+.alignment-container {
+  background-color: #e6e6e6;
+  border-radius: 5px;
+  height: 27px;
+  text-align: center;
+  width: 45px;
 }
