@@ -1,4 +1,5 @@
 import { Hero } from 'interfaces/Hero.interface'
+import { OSelect } from 'interfaces/Geneal.interface'
 import { RootState } from 'store'
 import { SelectPowerstatsOptions, SortOptions } from 'constants/constantsHero'
 import { useSelector } from 'react-redux'
@@ -6,11 +7,6 @@ import { useState } from 'react'
 import CardHero from 'components/CardHero'
 import Loader from 'components/Loader'
 import Select, { SingleValue } from 'react-select'
-
-interface OSelect {
-  label: string
-  value: string
-}
 
 interface SortSelect extends OSelect {
   value: 'asc' | 'desc' | string
