@@ -5,14 +5,14 @@ import { Input } from 'components/Inputs'
 import { resetList } from 'store/slices/superHeroes'
 import { RootState } from 'store'
 import { useDispatch, useSelector } from 'react-redux'
-import { useNavigate } from 'react-router'
+import { useLocation, useNavigate } from 'react-router'
 import CardHero from 'components/CardHero'
 import Loader from 'components/Loader'
 
 const ResultadoBusqueda = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
-
+  const { search } = useLocation()
   const heroesList = useSelector((state: RootState) => state.superHeroes.list)
   const loading = useSelector((state: RootState) => state.superHeroes.loading)
   const [searchValue, setSearchValue] = useState<string | null>(null)
@@ -59,7 +59,7 @@ const ResultadoBusqueda = () => {
       ) : heroesList.length > 0 ? (
         <>
           <h2>
-            Resultado para: <code>{searchValue}</code>
+            Resultado para: <code>{search.replace(/[^a-zA-Z ]/g, ' ')}</code>
           </h2>
           <div className="mt-5 mb-3">
             <div className="row">
