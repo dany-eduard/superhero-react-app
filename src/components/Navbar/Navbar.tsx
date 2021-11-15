@@ -1,9 +1,13 @@
 import { Input } from 'components/Inputs'
 import { ChangeEvent, FormEvent, useEffect, useState } from 'react'
+import { useDispatch } from 'react-redux'
 import { useLocation, useNavigate } from 'react-router'
 import { Link } from 'react-router-dom'
+import { fetchSearchHero } from 'services'
+import { resetList } from 'store/slices/superHeroes'
 
 const Navbar = () => {
+  const dispatch = useDispatch()
   const navigate = useNavigate()
   const path = useLocation().pathname
   const [searchValue, setSearchValue] = useState<string | undefined>(undefined)
@@ -15,6 +19,8 @@ const Navbar = () => {
   const handleFormSearch = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     navigate(`resultado-busqueda?${searchValue}`)
+    dispatch(resetList())
+    if (searchValue) dispatch(fetchSearchHero(searchValue))
   }
 
   useEffect(() => {
