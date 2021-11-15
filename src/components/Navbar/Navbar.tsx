@@ -1,12 +1,32 @@
-import { useLocation } from 'react-router'
+import { Input } from 'components/Inputs'
+import { ChangeEvent, FormEvent, useEffect, useState } from 'react'
+import { useLocation, useNavigate } from 'react-router'
 import { Link } from 'react-router-dom'
 
 const Navbar = () => {
+  const navigate = useNavigate()
   const path = useLocation().pathname
+  const [searchValue, setSearchValue] = useState<string | undefined>(undefined)
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setSearchValue(e.target.value)
+  }
+
+  const handleFormSearch = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    navigate(`resultado-busqueda?${searchValue}`)
+  }
+
+  useEffect(() => {
+    setSearchValue('')
+  }, [path])
 
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
       <div className="container-fluid">
+        <Link className={`navbar-brand ${path === '/superhero-react-app' && 'active'}`} to="/superhero-react-app">
+          Inicio
+        </Link>
         <button
           className="navbar-toggler"
           type="button"
@@ -19,9 +39,6 @@ const Navbar = () => {
           <span className="navbar-toggler-icon" />
         </button>
         <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
-          <Link className={`navbar-brand nav-link ${path === '/' && 'active'}`} to="/">
-            Inicio
-          </Link>
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
               <Link className={`nav-link ${path === '/habilidades' && 'active'}`} to="/habilidades">
@@ -34,6 +51,18 @@ const Navbar = () => {
               </Link>
             </li>
           </ul>
+          <form className="d-flex" onSubmit={handleFormSearch}>
+            <Input
+              autoComplete="off"
+              id="input-search"
+              onChange={handleChange}
+              placeholder="Buscar un heroe"
+              value={searchValue}
+            />
+            <button className="btn btn-outline-light" type="submit">
+              Buscar
+            </button>
+          </form>
         </div>
       </div>
     </nav>
