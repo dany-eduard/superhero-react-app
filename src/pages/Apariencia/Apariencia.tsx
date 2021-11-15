@@ -1,12 +1,10 @@
-/* eslint-disable jsx-a11y/control-has-associated-label */
-/* eslint-disable no-unused-vars */
 import { Hero } from 'interfaces/Hero.interface'
 import { Input } from 'components/Inputs'
 import { OSelect } from 'interfaces/Geneal.interface'
 import { RootState } from 'store'
 import { SelectAppearanceOptions } from 'constants/constantsHero'
 import { useSelector } from 'react-redux'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import Select, { SingleValue } from 'react-select'
 import Loader from 'components/Loader'
 import CardHero from 'components/CardHero'
@@ -46,6 +44,7 @@ const Apariencia = () => {
     const property = characteristic?.value
 
     if (property && value) {
+      setIsLoading(true)
       const filteredHeroes = heroesList.filter((hero: Hero) => {
         if (property === 'height' || property === 'weight') {
           const heroProperty = hero.appearance[property]
@@ -56,6 +55,7 @@ const Apariencia = () => {
       })
       setfFiltered(true)
       setFilteredHeroesList(filteredHeroes)
+      setIsLoading(false)
     }
   }
 
