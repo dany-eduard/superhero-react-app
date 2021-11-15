@@ -72,6 +72,8 @@ const ResultadoBusqueda = () => {
                     alignment={hero.biography.alignment}
                     appearance={hero.appearance}
                     image={hero.image}
+                    showPowerStats
+                    showAppearance
                   />
                 </div>
               ))}

@@ -151,6 +151,7 @@ const Habilidades = () => {
                     alignment={hero.biography.alignment}
                     appearance={hero.appearance}
                     image={hero.image}
+                    showPowerStats
                   />
                 </div>
               ))}

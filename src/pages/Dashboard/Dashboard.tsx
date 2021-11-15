@@ -55,6 +55,7 @@ const Dashboard = () => {
                 alignment={hero.biography.alignment}
                 appearance={hero.appearance}
                 image={hero.image}
+                showPowerStats
               />
             </div>
           ))}
