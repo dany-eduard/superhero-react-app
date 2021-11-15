@@ -18,7 +18,7 @@ const index = (props: CardProps) => {
       <div className="d-flex justify-content-between">
         <div className="d-flex flex-row align-items-center">
           <div className="avatar">
-            <img className="img-fluid" src={image.url} alt={`${fullName}.profile`} />
+            <img className="img-fluid" src={image.url} alt={`${name}.profile`} />
           </div>
           <div className="ms-2 c-details">
             <h6 className="mb-0">{name}</h6> <span>{fullName}</span>

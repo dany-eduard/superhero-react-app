@@ -11,6 +11,7 @@ export interface Hero {
 }
 
 export interface Powerstats {
+  [key: string]: string;
   intelligence: string;
   strength: string;
   speed: string;
