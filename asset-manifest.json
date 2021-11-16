@@ -3,18 +3,18 @@
     "static/js/0.fdbbc67f.chunk.js": "/superhero-react-app/static/js/0.fdbbc67f.chunk.js",
     "static/js/0.fdbbc67f.chunk.js.map": "/superhero-react-app/static/js/0.fdbbc67f.chunk.js.map",
     "main.css": "/superhero-react-app/static/css/main.46e29f43.chunk.css",
-    "main.js": "/superhero-react-app/static/js/main.a0b22603.chunk.js",
-    "main.js.map": "/superhero-react-app/static/js/main.a0b22603.chunk.js.map",
-    "runtime-main.js": "/superhero-react-app/static/js/runtime-main.d9284e30.js",
-    "runtime-main.js.map": "/superhero-react-app/static/js/runtime-main.d9284e30.js.map",
+    "main.js": "/superhero-react-app/static/js/main.39f48a20.chunk.js",
+    "main.js.map": "/superhero-react-app/static/js/main.39f48a20.chunk.js.map",
+    "runtime-main.js": "/superhero-react-app/static/js/runtime-main.b02a61fc.js",
+    "runtime-main.js.map": "/superhero-react-app/static/js/runtime-main.b02a61fc.js.map",
     "static/js/3.3dfdb9c3.chunk.js": "/superhero-react-app/static/js/3.3dfdb9c3.chunk.js",
     "static/js/3.3dfdb9c3.chunk.js.map": "/superhero-react-app/static/js/3.3dfdb9c3.chunk.js.map",
-    "static/js/4.d5960d06.chunk.js": "/superhero-react-app/static/js/4.d5960d06.chunk.js",
-    "static/js/4.d5960d06.chunk.js.map": "/superhero-react-app/static/js/4.d5960d06.chunk.js.map",
+    "static/js/4.3dbbc17c.chunk.js": "/superhero-react-app/static/js/4.3dbbc17c.chunk.js",
+    "static/js/4.3dbbc17c.chunk.js.map": "/superhero-react-app/static/js/4.3dbbc17c.chunk.js.map",
     "static/js/5.aacb3433.chunk.js": "/superhero-react-app/static/js/5.aacb3433.chunk.js",
     "static/js/5.aacb3433.chunk.js.map": "/superhero-react-app/static/js/5.aacb3433.chunk.js.map",
-    "static/js/6.0e4b144a.chunk.js": "/superhero-react-app/static/js/6.0e4b144a.chunk.js",
-    "static/js/6.0e4b144a.chunk.js.map": "/superhero-react-app/static/js/6.0e4b144a.chunk.js.map",
+    "static/js/6.834cd476.chunk.js": "/superhero-react-app/static/js/6.834cd476.chunk.js",
+    "static/js/6.834cd476.chunk.js.map": "/superhero-react-app/static/js/6.834cd476.chunk.js.map",
     "static/js/7.b03ec9ff.chunk.js": "/superhero-react-app/static/js/7.b03ec9ff.chunk.js",
     "static/js/7.b03ec9ff.chunk.js.map": "/superhero-react-app/static/js/7.b03ec9ff.chunk.js.map",
     "static/js/8.635546f3.chunk.js": "/superhero-react-app/static/js/8.635546f3.chunk.js",
@@ -26,9 +26,9 @@
     "static/js/3.3dfdb9c3.chunk.js.LICENSE.txt": "/superhero-react-app/static/js/3.3dfdb9c3.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.d9284e30.js",
+    "static/js/runtime-main.b02a61fc.js",
     "static/js/3.3dfdb9c3.chunk.js",
     "static/css/main.46e29f43.chunk.css",
-    "static/js/main.a0b22603.chunk.js"
+    "static/js/main.39f48a20.chunk.js"
   ]
 }
