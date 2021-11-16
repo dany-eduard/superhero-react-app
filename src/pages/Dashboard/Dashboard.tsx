@@ -26,19 +26,25 @@ const Dashboard = () => {
   }
 
   useEffect(() => {
-    const onChange = (entries: any[], observer: any) => {
+    let observer: any
+    const onChange = (entries: any[], _observer: any) => {
       const el = entries[0]
       if (el.isIntersecting) {
         if (!loading) getHeroes()
-        observer.disconnect()
+        _observer.disconnect()
       }
     }
 
-    const observer = new IntersectionObserver(onChange, {
-      rootMargin: '200px',
+    Promise.resolve(
+      typeof IntersectionObserver !== 'undefined' ? IntersectionObserver : import('intersection-observer')
+    ).then(() => {
+      observer = new IntersectionObserver(onChange, {
+        rootMargin: '200px',
+      })
+
+      observer.observe(elementRef.current as HTMLDivElement)
     })
 
-    observer.observe(elementRef.current as HTMLDivElement)
     return () => observer.disconnect()
   })
 
